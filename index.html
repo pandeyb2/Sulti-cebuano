@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sulti — Cebuano phrase practice</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#123d33" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Sulti" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Sulti home"><span>✦</span> Sulti</a>
+        <nav aria-label="Main navigation">
+          <a href="#learn">Learn</a>
+          <a href="#library">Phrasebook</a>
+        </nav>
+        <button id="reset-progress" class="text-button" type="button">Reset progress</button>
+      </header>
+
+      <section id="home" class="hero">
+        <div>
+          <p class="kicker">Cebuano for everyday life</p>
+          <h1>Speak with people, not a phrasebook.</h1>
+          <p class="lede">Learn practical Cebuano phrases through short, friendly moments—ordering food, asking for help, greeting family, and getting around.</p>
+          <a class="primary-button" href="#learn">Start a 3-minute lesson <span aria-hidden="true">→</span></a>
+        </div>
+        <aside class="streak-card" aria-label="Learning progress">
+          <span class="streak-icon" aria-hidden="true">🔥</span>
+          <div><strong id="known-count">0</strong><span>phrases saved</span></div>
+          <div class="meter" aria-hidden="true"><i id="known-meter"></i></div>
+          <p id="progress-copy">Choose a phrase to begin.</p>
+        </aside>
+      </section>
+
+      <section id="learn" class="learn-section" aria-labelledby="lesson-heading">
+        <div class="section-heading"><div><p class="kicker">Daily practice</p><h2 id="lesson-heading">Learn in real-life moments</h2></div><p>Tap “Next” to work through a focused mini lesson.</p></div>
+        <div class="lesson-layout">
+          <article class="lesson-card">
+            <div class="lesson-topline"><span id="practice-category">Food & drink</span><span id="practice-position">1 of 8</span></div>
+            <p id="practice-situation" class="situation">At a small café</p>
+            <p id="practice-cebuano" class="large-phrase">Palihog, usa ka kape.</p>
+            <p id="practice-english" class="meaning">“One coffee, please.”</p>
+            <p id="practice-pronunciation" class="pronunciation">pah-lee-HOG, OO-sa ka KAH-peh</p>
+            <div class="lesson-actions"><button id="speak-practice" class="secondary-button" type="button">🔊 Hear it</button><button id="save-practice" class="primary-button compact" type="button">Save phrase</button><button id="next-practice" class="next-button" type="button">Next <span aria-hidden="true">→</span></button></div>
+          </article>
+          <aside class="context-card"><p class="context-label">Try this next</p><p id="practice-reply" class="reply">A barista may ask: <strong>Unsa nga klase?</strong><br><span>“What kind?”</span></p><hr><p id="practice-note" class="culture-note"><strong>Culture tip:</strong> “Palihog” turns a request into a polite “please.”</p></aside>
+        </div>
+      </section>
+
+      <section id="library" class="library-section" aria-labelledby="library-heading">
+        <div class="section-heading"><div><p class="kicker">Phrasebook</p><h2 id="library-heading">More than 50 useful phrases</h2></div><p id="library-count">56 phrases</p></div>
+        <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search English or Cebuano" /></label><div id="filters" class="filter-row" aria-label="Filter phrase categories"></div></div>
+        <div id="phrase-grid" class="phrase-grid" aria-live="polite"></div>
+      </section>
+    </main>
+    <footer>Built for practice—Cebuano is also often called Bisaya in everyday conversation.</footer>
+    <script src="app.js"></script>
+    <script>if ("serviceWorker" in navigator) { navigator.serviceWorker.register("./sw.js"); }</script>
+  </body>
+</html>
